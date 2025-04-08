@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Motion Detector</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MOTION DETECTOR</h1>
+            <div class="status-bar">
+                <div class="status-indicator">
+                    <span class="status-label">STATUS:</span>
+                    <span id="status-text">NO MOTION</span>
+                </div>
+                <div class="motion-level">
+                    <span class="level-label">MOTION LEVEL:</span>
+                    <div class="level-meter">
+                        <div id="level-bar"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="video-container">
+                <video id="video" autoplay playsinline></video>
+                <canvas id="motion-canvas"></canvas>
+                <div id="no-camera-message" class="hidden">CAMERA ACCESS DENIED</div>
+            </div>
+
+            <div class="controls-panel">
+                <div class="control-group">
+                    <label for="sensitivity">SENSITIVITY:</label>
+                    <input type="range" id="sensitivity" min="10" max="100" value="30">
+                    <span id="sensitivity-value">30</span>
+                </div>
+                
+                <div class="control-group">
+                    <label for="min-pixels">MIN PIXELS:</label>
+                    <input type="range" id="min-pixels" min="500" max="10000" value="1500">
+                    <span id="min-pixels-value">1500</span>
+                </div>
+
+                <div class="control-group buttons">
+                    <button id="start-btn" class="control-btn">START</button>
+                    <button id="stop-btn" class="control-btn" disabled>STOP</button>
+                </div>
+
+                <div class="control-group">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="sound-toggle" checked>
+                        <span class="checkmark"></span>
+                        SOUND
+                    </label>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="system-info">
+                <span id="resolution">RESOLUTION: --</span>
+                <span id="fps">FPS: --</span>
+            </div>
+            <div class="copyright">© 2025 RETRO MOTION DETECTOR</div>
+        </footer>
+    </div>
+
+    <audio id="bing-sound" src="assets/bing.mp3" preload="auto"></audio>
+    
+    <script src="script.js"></script>
+</body>
+</html>
